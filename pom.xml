@@ -92,6 +92,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!--模型相关的操作：创建、保存、转换json与xml格式等-->
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-modeler</artifactId>
@@ -102,6 +103,7 @@
 			<artifactId>activiti-rest</artifactId>
 			<version>${activiti.version}</version>
 		</dependency>
+		<!--模块用来处理流程图有关的功能：流程图布局（layout）、节点高亮等-->
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-diagram-rest</artifactId>
@@ -113,6 +115,16 @@
 			<version>${activiti.version}</version>
 		</dependency>
 		<!--activiti end-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
