@@ -60,6 +60,10 @@ public class ActivitiConfig {
                 new ClassPathResource("/deployments/leave-formkey.bar"),
                 new ClassPathResource("/deployments/leave-jpa.zip"),
                 new ClassPathResource("/deployments/timerExample.zip")});
+//        default: 把所有资源放在一个单独的发布包中，对这个发布包进行重复检测。 这是默认值，如果你没有指定参数值，就会使用它。
+//        single-resource: 为每个单独的资源创建一个发布包，并对这些发布包进行重复检测。 你可以单独发布每个流程定义，并在修改流程定义后只创建一个新的流程定义版本。
+//        resource-parent-folder: 把放在同一个上级目录下的资源发布在一个单独的发布包中，并对发布包进行重复检测。 当需要多资源需要创建发布包，但是需要根据共同的文件夹来组合一些资源时，可以使用它。
+        processEngineConfiguration.setDeploymentMode("single-resource");
         // 自定义表单字段类型
         List<AbstractFormType> customFormTypes = new ArrayList<>();
         customFormTypes.add(new UsersFormType());
