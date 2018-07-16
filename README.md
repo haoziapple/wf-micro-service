@@ -5,3 +5,9 @@
 - src/main/resources/static/editor-app：目录中包含设计器里面所有的资源：angular.js、oryx.js以及配套的插件及css
 - src/main/resources/static/modeler.html：设计器的主页面，用来引入各种web资源
 - 修改editor-app/app-cfg.js文件的contextRoot属性为自己的应用名称，例如/kft-activiti-demo/service
+
+## activiti6
+
+> 尝试使用springboot整合activiti6
+
+使用activiti-springboot-starter:6.0.0 + springboot1.5.7(2.0版本的springboot会报错) 
