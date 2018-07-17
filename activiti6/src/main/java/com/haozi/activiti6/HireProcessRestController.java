@@ -31,7 +31,7 @@ public class HireProcessRestController {
 
         Map<String, Object> vars = Collections.<String, Object>singletonMap("applicant", applicant);
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("hireProcessWithJpa", vars);
-        return processInstance.getProcessInstanceId();
+        return processInstance.getId();
     }
 
     @GetMapping("/get-applicant")
