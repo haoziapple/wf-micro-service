@@ -67,13 +67,19 @@ public class MyConfiguration {
         return Pollers.fixedRate(1000L).get();
     }
 
+
+    /**********************Flow Start**********************/
     @Bean
     public IntegrationFlow myFlow() {
         return IntegrationFlows.from(
-                "inputChannel")
-//                this.integerMessageSource(), c ->
-//                c.poller(Pollers.fixedRate(5000L)))
-//                .channel(this.inputChannel())
+//                "inputChannel")
+                // 下面这个写法也可以，而且很神奇，integerMessageSource，inputChannel的方法都只调用一次，没有重复创建
+                // 奇怪的是打印偶数的间隔变成5s了（设想应该是10s）
+                // 懂了！这样写的话上面的InboundChannelAdapter注解仍然起作用，也就是说一个source上面注册了两个5秒间隔的poller
+                this.integerMessageSource(), c ->
+                c.poller(Pollers.fixedRate(5000L)))
+                .channel(this.inputChannel())
+                //
                 .filter((Integer p) -> p % 2 == 0)
                 .<Object, String>transform(Object::toString)
                 .channel(MessageChannels.queue())
@@ -83,7 +89,7 @@ public class MyConfiguration {
 
     @Bean
     public IntegrationFlow integerFlow() {
-        return IntegrationFlows.from("publishSubscribeChannel")
+        return IntegrationFlows.from(this.publishSubscribeChannel()) //这种写法跟下面相比更好些，可以防止硬编码
                 .<String, Integer>transform(Integer::parseInt)
                 //TODO：不懂为什么下面这种写法不行，因为Integer的toString方法有好几个？
 //                .<Integer, String>transform(Integer::toString)
