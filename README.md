@@ -11,3 +11,8 @@
 尝试使用springboot整合activiti6
 - 参考：http://spring.io/blog/2015/03/08/getting-started-with-activiti-and-spring-boot
 - 使用activiti-springboot-starter:6.0.0 + springboot1.5.7(2.0版本的springboot会报错) 
+
+## integration
+- 尝试spring-integration
+- 尝试使用基于redis的消息队列
+- 尝试Groovy的模板引擎
