@@ -1,9 +1,7 @@
 package com.haozi.integration.example;
 
-import com.sun.org.apache.xml.internal.security.encryption.Transforms;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.integration.annotation.EndpointId;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.channel.DirectChannel;
@@ -13,11 +11,9 @@ import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.Pollers;
-import org.springframework.integration.dsl.Transformers;
 import org.springframework.integration.dsl.channel.MessageChannels;
 import org.springframework.integration.endpoint.MethodInvokingMessageSource;
 import org.springframework.integration.scheduling.PollerMetadata;
-import org.springframework.integration.transformer.PayloadDeserializingTransformer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
