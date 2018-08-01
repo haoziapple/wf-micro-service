@@ -23,6 +23,7 @@ public class MqApplication implements CommandLineRunner {
         SpringApplication.run(MqApplication.class, args);
     }
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private KafkaTemplate<String, String> template;
 

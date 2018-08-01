@@ -17,10 +17,18 @@ import java.util.EnumSet;
 @Configuration
 @EnableStateMachine
 public class StateMachineConfig {
+    /**
+     * 定义两个状态
+     */
     static enum States {
         STATE1, STATE2
     }
 
+    /**
+     * 定义两个事件，事件触发STATE的改变
+     * EVENT1: STATE1-->STATE2
+     * EVENT2: STATE2-->STATE1
+     */
     static enum Events {
         EVENT1, EVENT2
     }
