@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 生成命令：mvn mybatis-generator:generate -->
+    <!--参考：https://www.jianshu.com/p/cd8867af4389-->
+    <!--参考：http://mbg.cndocs.ml/-->
+
+    <!-- 数据库驱动包位置 -->
+    <!--这边的驱动包位置可以不配置，因为在pom里面的plugin/dependencies已经添加了驱动依赖-->
+    <!--<classPathEntry-->
+    <!--location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.39"/>-->
+
+    <context id="genMappers" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 阻止生成注释，默认false -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 连接配置 -->
+        <!--Mysql-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8"-->
+                        <!--userId="root"-->
+                        <!--password="root"/>-->
+
+        <!--Oracle-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@10.100.2.139:1521:orcl"
+                        userId="user_mes_dev"
+                        password="user_mes_dev"/>
+
+        <!-- 是否强制DECIMAL和NUMERIC类型的字段转换为BigDecimal,默认值为false -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.haozi.mybatis.generated.entity"
+                            targetProject="src/main/java">
+            <!--<property name="enableSubPackages" value="true" />-->
+            <!--<property name="trimStrings" value="true" />-->
+        </javaModelGenerator>
+
+        <!-- 映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="src/main/resources"/>
+
+        <!-- DAO接口类 -->
+        <!-- ANNOTATEDMAPPER:基于注解的Mapper接口，不会有对应的XML映射文件 -->
+        <!-- XMLMAPPER:所有的方法都在XML中，接口调用依赖XML文件 -->
+        <javaClientGenerator targetPackage="com.haozi.mybatis.generated.dao"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <!-- 不生成example方法 -->
+        <!--<table tableName="test" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <table tableName="t_pp_main_plan_order" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
