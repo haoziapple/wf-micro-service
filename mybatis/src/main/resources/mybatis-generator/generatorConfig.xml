@@ -21,16 +21,16 @@
 
         <!-- 连接配置 -->
         <!--Mysql-->
-        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
-                        <!--connectionURL="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8"-->
-                        <!--userId="root"-->
-                        <!--password="root"/>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8"
+                        userId="root"
+                        password="root"/>
 
         <!--Oracle-->
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-                        connectionURL="jdbc:oracle:thin:@10.100.2.139:1521:orcl"
-                        userId="user_mes_dev"
-                        password="user_mes_dev"/>
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@10.100.2.139:1521:orcl"-->
+                        <!--userId="user_mes_dev"-->
+                        <!--password="user_mes_dev"/>-->
 
         <!-- 是否强制DECIMAL和NUMERIC类型的字段转换为BigDecimal,默认值为false -->
         <javaTypeResolver>
@@ -54,11 +54,11 @@
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
         <!-- 不生成example方法 -->
-        <!--<table tableName="test" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
-        <!--</table>-->
-        <table tableName="t_pp_main_plan_order" enableCountByExample="false"
+        <table tableName="user" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="flyway_schema_history" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
