@@ -25,7 +25,7 @@ public class BeanGenerator {
 
         // 仍然使用fooA的名称注册，会把上面的覆盖掉
         // TODO: 奇怪的是名字不用fooA的话，autowired的时候不会报错（相当于注册了两个FooA类，autowired的时候还是取第一个）
-        // TODO: 怎么保证BeanGenerator在BeanUser之前先注册?（要不然fooA还没有创建，会报错）
+        // TODO: 怎么保证BeanGenerator在BeanUser之前先注册?（要不然fooA还没有创建，会报错）==> 使用@Order或@Priority注解
         // TODO: 好像是根据ClassName来的，Generator前面加个"A"就没问题。。,把BeanUser移动到子包里面也没问题
         beanFactory.registerBeanDefinition("fooA", BeanDefinitionBuilder
                 .genericBeanDefinition(Class.forName("com.haozi.purespring.simpleclazz.FooA"))
