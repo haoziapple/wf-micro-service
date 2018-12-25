@@ -89,7 +89,7 @@ public class Activiti6Application {
             group.setName("users");
             group.setType("security-role");
             identityService.saveGroup(group);
-
+            // 这边的用户名密码对应了访问接口时使用basic auth的鉴权信息
             User admin = identityService.newUser("admin");
             admin.setPassword("admin");
             identityService.saveUser(admin);
